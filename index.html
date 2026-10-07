@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fires Sant Narcís - Laia Guia</title>
+<link rel="manifest" href="manifest.json">
+<style>
+:root{--n:#e67e22;--bg:#0f0f0f;--card:#1a1a1a;--txt:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui}
+header{padding:16px;text-align:center;background:#1f1f1f;position:sticky;top:0;z-index:10}
+#app{padding:12px 12px 120px;max-width:600px;margin:auto}
+.grid{display:flex;flex-direction:column;gap:8px}
+.card{border:1px solid #333;padding:14px;border-radius:16px;display:flex;gap:12px;align-items:center;background:var(--card)}
+.card.bloquejat{opacity:.35}
+.icon{font-size:28px;min-width:40px;text-align:center}
+.contador{background:#222;padding:10px;border-radius:12px;text-align:center;margin-bottom:12px;font-weight:700}
+.back{background:none;border:none;color:var(--n);font-size:16px;margin-bottom:12px}
+.fitxa{background:var(--card);border-radius:16px;padding:14px;border:1px solid #333}
+.icona-gran{font-size:48px;display:block;text-align:center}
+.foto-capitol{width:100%;border-radius:12px;margin:12px 0}
+.text-llarg{line-height:1.6}
+.curiosa{background:#2a2416;border-left:3px solid var(--n);padding:10px;border-radius:10px;margin:12px 0}
+.segell{text-align:center;background:var(--n);color:#000;padding:8px;border-radius:10px;font-weight:800;margin:12px 0}
+.btn{background:var(--n);color:#000;padding:10px 14px;border-radius:12px;text-decoration:none;border:none;font-weight:700}
+.btn.sec{background:#333;color:#fff;margin-left:8px}
+.laia-bubble{position:fixed;bottom:16px;left:12px;right:12px;background:#fff;color:#111;border-radius:20px;padding:12px;display:flex;gap:12px;box-shadow:0 12px 40px rgba(0,0,0,.45);transform:translateY(160%);transition:.55s;z-index:999;max-width:600px;margin:auto}
+.laia-bubble.show{transform:translateY(0)}
+.laia-avatar{font-size:34px;min-width:42px;text-align:center}
+.laia-text b{color:#e67e22;font-size:11px;text-transform:uppercase}
+.laia-tip{display:block;margin-top:8px;background:#fef9e7;padding:8px;border-radius:10px;font-size:12px}
+</style>
+</head>
+<body>
+<header><h1>🪰 Fires Sant Narcís</h1><small>amb Laia - Miss Minutes gironina</small></header>
+<div id="app">Carregant...</div>
+<script src="app.js"></script>
+</body>
+</html>
