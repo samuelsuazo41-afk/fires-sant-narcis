@@ -1,9 +1,8 @@
-// APP.JS COMPLET - FIRES SANT NARCÍS - LAIA ALGORITMICA v2.0
+// FIRES SANT NARCÍS - Laia Miss Minutes v2.1 - Cervell Algorítmic Net
 let capitols = [];
 let visitats = JSON.parse(localStorage.getItem('fires_visitats') || '[]');
 let laiaHistory = JSON.parse(localStorage.getItem('laia_history') || '[]');
 
-// --- CERVELL ALGORÍTMIC DE LAIA ---
 function getHora() {
   const h = new Date().getHours();
   if (h < 12) return 'matí';
@@ -14,26 +13,34 @@ function getHora() {
 function getLaiaDialogue(context, data = null) {
   const hora = getHora();
   const count = visitats.length;
-  
-  const dialogues = {
+
+  // Si estem dins un capítol, usa la frase del JSON
+  if (context === 'capitol' && data && data.laia) {
+    return {
+      emoji: data.laia.emoji || '🪰',
+      text: data.laia.frase,
+      tip: data.laia.tip || null
+    };
+  }
+
+  const frases = {
     mapa_0: [
-      `Bon ${hora}! Soc Laia! La teva Miss Minutes gironina! Comencem per les Mosques del 1285? Allí va començar tot!`,
+      `Bon ${hora}! Soc Laia! La teva Miss Minutes gironina! Comencem per les Mosques del 1285?`,
       `Eeei! Primer cop? Jo soc Laia, mosca oficial de Girona. Vine, t'ensenyo on vam matar 20.000 francesos 😏`,
-      `Hola hola! Tens 0 segells. Tranqui, jo t'ajudo. El primer és a Sant Narcís, a 2 min d'aquí!`
+      `Hola hola! Tens 0 segells. El primer és a Sant Narcís, a 2 min d'aquí!`
     ],
     mapa_1_2: [
-      `Vas be! ${count} segells! Ja ets mig gironí! A per la ruta secreta? Et falten ${3-count}...`,
-      `Mmm ${count} segells... m'agrada! Si arribes a 3 et dic un lloc on només anem els locals de nit 😉`,
-      `Bon ${hora}! Et queda poc per la sorpresa...`
+      `Vas bé! ${count} segells! Et falten ${3 - count} per la ruta secreta...`,
+      `Mmm ${count} segells... m'agrada! Si arribes a 3 et dic un lloc només de locals 😉`,
+      `Bon ${hora}! Et queda poc per la sorpresa de nit...`
     ],
     mapa_3_plus: [
-      `BOOM! ${count} segells! Ja tens la RUTA SECRETA desbloquejada! Mira el mapa, icona 🗝️! Aquesta només la sé jo!`,
-      `Ets VIP! Ja ets firastaire de veritat! La ruta de nit és la millor, xurros + barraques + Lleona de nit!`,
-      `Mare meva ${count}! Ja pots fer el tour de nit! 23h Barraques i digues que t'envia Laia!`
+      `BOOM! ${count} segells! Ja tens la RUTA SECRETA desbloquejada! Mira la icona 🗝️!`,
+      `Ets VIP! Ja ets firastaire de veritat! La ruta de nit és xurros + barraques + Lleona sense cua!`
     ],
     mapa_6: [
-      `HAS ACABAT! 6 de 6! Ets LLEGENDA de Fires! Et faré un diploma de mosca honorífica! 🪰🏆`,
-      `No m'ho crec! Tot complet! Ara ja pots explicar tu les llegendes als guiris!`
+      `HAS ACABAT! 6 de 6! Ets LLEGENDA de Fires! Et faig diploma de mosca honorífica! 🪰🏆`,
+      `No m'ho crec! Tot complet! Ara pots explicar tu les llegendes als guiris!`
     ]
   };
 
@@ -43,36 +50,30 @@ function getLaiaDialogue(context, data = null) {
   else if (count >= 3) key = 'mapa_3_plus';
   else key = 'mapa_1_2';
 
-  if (context === 'capitol' && data) {
-    return { emoji: data.laia?.emoji || '🪰', text: data.laia?.frase, tip: data.laia?.tip };
-  }
-
-  const pool = dialogues[key];
-  // Algoritme anti-repetició
+  const pool = frases[key];
   let frase;
-  let tries = 0;
+  let intents = 0;
   do {
     frase = pool[Math.floor(Math.random() * pool.length)];
-    tries++;
-  } while (laiaHistory.includes(frase) && tries < 5 && pool.length > 1);
-  
+    intents++;
+  } while (laiaHistory.includes(frase) && intents < 5 && pool.length > 1);
+
   laiaHistory.push(frase);
   if (laiaHistory.length > 10) laiaHistory.shift();
   localStorage.setItem('laia_history', JSON.stringify(laiaHistory));
 
-  return { emoji: count >=3 ? '🗝️' : '🪰', text: frase, tip: null };
+  return { emoji: count >= 3? '🗝️' : '🪰', text: frase, tip: null };
 }
 
-// --- LOGICA MAPA ---
 async function init() {
   try {
     const r = await fetch('data/capitols.json');
+    if (!r.ok) throw new Error('No trobo capitols.json');
     capitols = await r.json();
+    renderMapa();
   } catch (e) {
-    document.getElementById('app').innerHTML = `Error capitols.json: ${e}`;
-    return;
+    document.getElementById('app').innerHTML = `<b>Error carregant mapa:</b> ${e}<br>Revisa que data/capitols.json existeix`;
   }
-  renderMapa();
 }
 
 function estaDesbloquejat(c) {
@@ -86,23 +87,23 @@ function estaDesbloquejat(c) {
 function renderMapa() {
   const app = document.getElementById('app');
   let html = `<div class="contador">🗝️ Segells: ${visitats.length} / 6 | ${getHora().toUpperCase()}</div><div class="grid">`;
-  
+
   capitols.forEach(c => {
     const desbloq = estaDesbloquejat(c);
-    const icon = desbloq ? c.icona : '🔒';
     html += `
-      <div class="card ${desbloq ? '' : 'bloquejat'}" onclick="${desbloq ? `obrirCapitol('${c.arxiu}')` : ''}">
-        <div class="icon">${icon}</div>
-        <div><b>${desbloq ? c.nom : '??? Bloquejat'}</b><br><small>${desbloq ? (c.descripcio||'') : (c.condicio_text||'')}</small></div>
+      <div class="card ${desbloq? '' : 'bloquejat'}" onclick="${desbloq? `obrirCapitol('${c.arxiu}')` : ''}">
+        <div class="icon">${desbloq? c.icona : '🔒'}</div>
+        <div><b>${desbloq? c.nom : 'Bloquejat'}</b><br><small>${desbloq? (c.descripcio||'') : (c.condicio_text||'')}</small></div>
       </div>`;
   });
+
   html += `</div><div id="laia-mapa"></div>`;
   app.innerHTML = html;
 
   const laia = getLaiaDialogue('mapa');
   document.getElementById('laia-mapa').innerHTML = `
     <div class="laia-bubble show">
-      <img src="laia.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" class="laia-img">
+      <img src="laia.png" class="laia-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
       <div class="laia-avatar" style="display:none">${laia.emoji}</div>
       <div class="laia-text"><b>Laia · ${getHora()}</b><p>${laia.text}</p></div>
     </div>`;
@@ -112,9 +113,8 @@ async function obrirCapitol(arxiu) {
   try {
     const r = await fetch(`data/${arxiu}`);
     const d = await r.json();
-    
-    // Guardar segell
-    if (d.tipus === 'capitol' && !visitats.includes(d.id)) {
+
+    if (d.tipus === 'capitol' &&!visitats.includes(d.id)) {
       visitats.push(d.id);
       localStorage.setItem('fires_visitats', JSON.stringify(visitats));
     }
@@ -124,45 +124,32 @@ async function obrirCapitol(arxiu) {
     document.getElementById('app').innerHTML = `
       <button onclick="renderMapa()" class="back">← Tornar al mapa</button>
       <div class="fitxa">
-        <div class="header-fitxa">
-          <div class="icona-gran">${d.icona}</div>
-          <h2>${d.nom}</h2>
-          <small>${d.ubicacio||''} · ${d.coords||''}</small>
-        </div>
-        ${d.imatge ? `<img src="${d.imatge}" class="foto-capitol" loading="lazy">` : ''}
+        <div class="icona-gran">${d.icona}</div>
+        <h2>${d.nom}</h2>
+        <small>${d.ubicacio || ''}</small>
+        ${d.imatge? `<img src="${d.imatge}" class="foto-capitol">` : ''}
         <p class="text-llarg">${d.text_llarg}</p>
-        ${d.dada_curiosa ? `<div class="curiosa">💡 ${d.dada_curiosa}</div>` : ''}
-        <div class="segell">${d.segell || 'Segell aconseguit!'}</div>
+        ${d.dada_curiosa? `<div class="curiosa">💡 ${d.dada_curiosa}</div>` : ''}
+        <div class="segell">${d.segell || 'Segell!'}</div>
         <div style="margin-top:12px">
           <a href="https://maps.google.com/?q=${d.coords}" target="_blank" class="btn">📍 Anar-hi</a>
-          <button onclick="parlar()" class="btn sec">🔊 Escoltar</button>
+          <button onclick="speechSynthesis.speak(new SpeechSynthesisUtterance(window.currentText))" class="btn sec">🔊</button>
         </div>
       </div>
       <div id="laia-bubble" class="laia-bubble">
-        <img src="laia.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" class="laia-img" style="width:48px;height:48px;border-radius:50%;object-fit:cover">
-        <div class="laia-avatar" style="display:none;font-size:38px">${laia.emoji}</div>
+        <img src="laia.png" class="laia-img" onerror="this.style.display='none'">
         <div class="laia-text">
-          <b>Laia</b>
-          <p id="laia-frase">${laia.text}</p>
-          ${laia.tip ? `<span class="laia-tip">💡 ${laia.tip}</span>` : ''}
-          <small style="opacity:.5;display:block;margin-top:6px">Segells: ${visitats.length}/6 · ${getHora()}</small>
+          <b>Laia</b><p>${laia.text}</p>
+          ${laia.tip? `<span class="laia-tip">💡 ${laia.tip}</span>` : ''}
         </div>
       </div>
     `;
-    setTimeout(() => document.getElementById('laia-bubble')?.classList.add('show'), 300);
     window.currentText = d.audio_text || d.text_llarg;
+    setTimeout(() => document.getElementById('laia-bubble')?.classList.add('show'), 200);
 
   } catch (e) {
-    document.getElementById('app').innerHTML = `Error ${arxiu}: ${e} <br><button onclick="renderMapa()" class="back">← Tornar</button>`;
+    document.getElementById('app').innerHTML = `Error carregant ${arxiu}: ${e}<br><button onclick="renderMapa()" class="back">← Tornar</button>`;
   }
 }
 
-function parlar() {
-  if (!window.currentText) return;
-  const u = new SpeechSynthesisUtterance(window.currentText);
-  u.lang = 'ca-ES';
-  u.rate = 1.1;
-  speechSynthesis.speak(u);
-}
-
-init(); 
+init();
