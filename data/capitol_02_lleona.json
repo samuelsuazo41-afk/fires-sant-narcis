@@ -1,1 +1,24 @@
-{"id":"capitol_02_lleona","tipus":"capitol","nom":"La Lleona - Cul de la Lleona","icona":"🦁","coords":"41.9844,2.8247","ubicacio":"Pujada Sant Feliu - davant Eiffel","imatge":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Lleona_Girona.jpg/400px-Lleona_Girona.jpg","text_llarg":"La Lleona és l'escultura més petita i més petonejada de Girona. Diu la tradició que si fas un petó al seu cul, tornaràs a Girona. Si no ho fas, no tornes mai més.","dada_curiosa":"Cada any la netegen perquè queda lluent de tants petons.","laia":{"emoji":"😘","frase":"Va, sense vergonya! Has de fer petonet al culete! Jo ja l'he fet 3 vegades avui! Si no, no tornaràs a Fires!","tip":"Millor hora sense cua: 8 del matí."},"audio_text":"Fes un petó al cul de la Lleona per tornar a Girona.","segell":"🦁 Segell Lleona!","links":{"google_maps":"https://maps.google.com/?q=41.9844,2.8247"}}
+{
+  "id": "capitol_02_lleona",
+  "tipus": "capitol",
+  "nom": "La Lleona - Cul de la Lleona",
+  "icona": "🦁",
+  "desbloquejat": true,
+  "arxiu": "capitol_02_lleona.json",
+  "coords": "41.98651,2.82690",
+  "ubicacio": "Pujada de Sant Feliu, 1 - Al costat del pont Eiffel",
+  "descripcio": "Fes petó al cul i tornaràs a Girona",
+  "imatge": null,
+  "text_llarg": "La Lleona és l'escultura més petita i més petonejada de Girona. Diu la tradició que si fas un petó al seu cul, tornaràs a Girona. Si no ho fas, no tornes mai més. Està penjada a 2 metres d'alçada, has d'enfilar-te una mica.",
+  "dada_curiosa": "Cada any la netegen perquè queda lluent de tants petons. Durant Fires hi ha cua de 30 min per fer el petó!",
+  "laia": {
+    "emoji": "😘",
+    "frase": "Va, sense vergonya! Has de fer petonet al culete! Jo ja l'he fet 3 vegades avui! Si no, no tornaràs a Fires! I si ets alt, t'hauràs d'ajupir eh!",
+    "tip": "Millor hora sense cua: 8 del matí. Evita les 12-14h i 18-20h.",
+    "so": "laia_muak",
+    "cara": "laia-picard.png"
+  },
+  "audio_text": "Fes un petó al cul de la Lleona per tornar a Girona. Tradició des de fa segles.",
+  "segell": "🦁 Segell Lleona Aconseguit!",
+  "seguent": "capitol_03_geganst"
+}
