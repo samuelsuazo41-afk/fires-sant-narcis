@@ -6,11 +6,18 @@
   "desbloquejat": true,
   "arxiu": "capitol_03_gegants.json",
   "coords": "41.98115,2.82430",
-  "ubicacio": "Plaça del Vi - Ajuntament",
-  "descripcio": "Cercavila des de fa 100 anys",
+  "ubicacio": "Plaça del Vi",
+  "descripcio": "Cercavila 100 anys",
   "imatge": null,
-  "text_llarg": "Les Fires comencen sempre igual des de fa 100 anys: cercavila de gegants, capgrossos, mulasses i el Drac de Girona. Surten del Parc del Migdia fins Plaça del Vi. Després pregó oficial i trons. Tot el centre es talla.",
-  "dada_curiosa": "El gegant Sant Narcís fa 3,80m i pesa 70kg. El porta una sola persona durant 3 hores!",
+  "text_llarg": "Les Fires comencen igual des de fa 100 anys: gegants, capgrossos, mulasses i Drac. Surten del Migdia fins Plaça del Vi. Després pregó.",
+  "dada_curiosa": "El gegant Sant Narcís fa 3,80m i pesa 70kg.",
   "laia": {
     "emoji": "🥳",
-    "frase": "Moment més heavy! Tota la plaça ballant gegants. Si els veus de prop fliparàs amb el Drac que treu fum! Jo va
+    "frase": "Moment més heavy! Tota la plaça ballant. El Drac treu fum!",
+    "tip": "Divendres 23 oct 18h. Vine 30 min abans.",
+    "cara": "laia-felic.png"
+  },
+  "audio_text": "Gegants i capgrossos de Girona.",
+  "segell": "🧙 Segell Gegants!",
+  "seguent": "capitol_04_devesa_fires"
+}
