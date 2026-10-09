@@ -1,1 +1,23 @@
-{"id":"capitol_04_devesa_fires","tipus":"capitol","nom":"La Devesa - Fires i Atraccions","icona":"🎡","coords":"41.9868,2.8136","ubicacio":"Parc de la Devesa","text_llarg":"La Devesa és el parc urbà més gran de Catalunya amb 40 hectàrees. Durant Fires hi ha atraccions, concerts a La Copa i Barraques. Dilluns hi ha Fires en Silenci sense soroll per nens amb sensibilitat.","dada_curiosa":"Els plataners els va plantar Napoleó.","laia":{"emoji":"🎡","frase":"El meu lloc preferit! Atraccions, sucre, i concerts a La Copa fins les 2am!","tip":"Dilluns Fires en silenci: sense soroll ni llums fortes."},"segell":"🎡 Segell Devesa!"}
+{
+  "id": "capitol_04_devesa_fires",
+  "tipus": "capitol",
+  "nom": "La Devesa - Fires",
+  "icona": "🎡",
+  "desbloquejat": true,
+  "arxiu": "capitol_04_devesa_fires.json",
+  "coords": "41.98480,2.81450",
+  "ubicacio": "Parc de la Devesa",
+  "descripcio": "Parc més gran Catalunya",
+  "imatge": null,
+  "text_llarg": "Parc urbà més gran de Catalunya, 40ha. Durant Fires: atraccions, concerts a La Copa i Barraques. Dilluns Fires en Silenci.",
+  "dada_curiosa": "Els plataners els va plantar Napoleó.",
+  "laia": {
+    "emoji": "🎡",
+    "frase": "El meu lloc preferit! Atraccions i concerts fins les 2am!",
+    "tip": "Dilluns silenci: sense soroll per nens.",
+    "cara": "laia-felic.png"
+  },
+  "audio_text": "La Devesa, parc més gran de Catalunya.",
+  "segell": "🎡 Segell Devesa!",
+  "seguent": "capitol_05_correfoc"
+}
