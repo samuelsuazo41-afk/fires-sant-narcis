@@ -1,1 +1,23 @@
-{"id":"capitol_06_vol_mosca","tipus":"capitol","nom":"Vol de la Mosca i Focs","icona":"🎆","coords":"41.9875,2.8260","ubicacio":"Montjuïc - Mirador Focs","text_llarg":"Final de Fires: castell de focs des de Montjuïc. Abans Vol de la Mosca i concert de tarda a La Copa. Tothom a la Devesa mirant cap amunt.","dada_curiosa":"Els focs duren 20 minuts i es veuen des de tota la ciutat.","laia":{"emoji":"🥹","frase":"Ja s'acaba... però que bonic! Promet-me que tornaràs l'any que ve?","tip":"Millor lloc: Pont de Pedra o Devesa."},"segell":"🎆 Segell Final! Ets Firastaire!"}
+{
+  "id": "capitol_06_vol_mosca",
+  "tipus": "capitol",
+  "nom": "Vol de la Mosca i Focs",
+  "icona": "🎆",
+  "desbloquejat": true,
+  "arxiu": "capitol_06_vol_mosca.json",
+  "coords": "41.98300,2.82800",
+  "ubicacio": "Mirador Focs - Montjuïc",
+  "descripcio": "Final Fires 20min focs",
+  "imatge": null,
+  "text_llarg": "Final de Fires: castell de focs des de Montjuïc. Abans Vol de la Mosca i concert. Tothom a la Devesa mirant amunt.",
+  "dada_curiosa": "Els focs duren 20 min i es veuen des de tota la ciutat.",
+  "laia": {
+    "emoji": "🥹",
+    "frase": "Ja s'acaba... però que bonic! Tornaràs l'any que ve?",
+    "tip": "Millor lloc: Pont de Pedra o Devesa.",
+    "cara": "laia-felic.png"
+  },
+  "audio_text": "Final de Fires amb focs de 20 minuts.",
+  "segell": "🎆 Ets Firastaire!",
+  "seguent": null
+}
