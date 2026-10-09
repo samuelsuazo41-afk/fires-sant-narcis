@@ -3,23 +3,23 @@
   "nom": "Les Mosques de 1285",
   "icona": "🪰",
   "tipus": "capitol",
-  "coords": "41.9879,2.8265",
+  "desbloquejat": true,
+  "arxiu": "capitol_01_mosques_1285.json",
   "ubicacio": "Església de Sant Narcís - C/ Cort Reial, 13",
-  "imatge": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Girona_-_Esgl%C3%A9sia_de_Sant_Narc%C3%ADs.jpg/400px-Girona_-_Esgl%C3%A9sia_de_Sant_Narc%C3%ADs.jpg",
+  "coords": "41.98790,2.82650",
+  "descripcio": "20.000 soldats morts. L'origen de les Fires",
   "descripcio_curta": "20.000 soldats francesos morts per mosques. L'origen de les Fires.",
   "text_llarg": "L'any 1285, Girona estava assetjada pels francesos. Van profanar la tomba de Sant Narcís i d'allà van sortir 20.000 mosques gegants que van matar 20.000 soldats i 4.000 cavalls. Els francesos van fugir cagats. Des d'aleshores, cada any per Sant Narcís (29 octubre) fem Fires grosses per recordar-ho. Les mosques són el símbol de la ciutat.",
   "dada_curiosa": "La Mosca de Sant Narcís és més famosa que el pa amb tomàquet a Girona. La veuràs a tot arreu durant Fires.",
+  "imatge": null,
   "laia": {
     "emoji": "😏",
     "frase": "Uuuh aquí! Les meves cosines! Vam matar 20.000 francesos nosaltres soles. Som petitetes però perilloses, eh? Ja veuràs quantes moscotes veuràs per Fires!",
     "tip": "Tip de Laia: Entra a l'església, és gratis durant Fires i hi ha la tomba original de Sant Narcís.",
-    "so": "laia_risa"
+    "so": "laia_risa",
+    "cara": "laia-felic.png"
   },
   "audio_text": "L'any 1285, les mosques de Sant Narcís van salvar Girona de l'exèrcit francès.",
   "segell": "🪰 Segell Mosques Aconseguit!",
-  "seguent": "capitol_02_lleona",
-  "links": {
-    "google_maps": "https://maps.google.com/?q=41.9879,2.8265",
-    "wikipedia": "https://ca.wikipedia.org/wiki/Sant_Narc%C3%ADs_de_Girona"
-  }
-}
+  "seguent": "capitol_02_lleona"
+} 
