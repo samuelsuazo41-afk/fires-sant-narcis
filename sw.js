@@ -1,5 +1,5 @@
 // sw.js - Fires Sant Narcís - Laia Offline v2
-const CACHE = 'fires-laia-v2';
+const CACHE = 'fires-laia-v3';
 const FILES = [
   './',
   './index.html',
